@@ -38,3 +38,20 @@ def cadastro(request):
             user.save()
 
             return HttpResponse("Usuário cadastrado com sucesso!")
+
+
+def home(request):
+    ##if request.method == "GET":
+        return render(request, 'usuarios/home.html')
+
+def lancar(request):
+    ##if request.method == "GET":
+        return render(request, 'usuarios/lancar.html')
+
+def alterar(request):
+    ##if request.method == "GET":
+        return render(request, 'usuarios/alterar.html')
+
+def visualizar(request):
+    ##if request.method == "GET":
+        return render(request, 'usuarios/visualizar.html')
