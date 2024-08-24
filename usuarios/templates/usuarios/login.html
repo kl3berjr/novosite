@@ -17,7 +17,7 @@
             <div class="card border-0 shadow rounded-3 my-5">
               <div class="card-body p-4 p-sm-5">
                 <h5 class="card-title text-center mb-5 fw-light fs-5">Login</h5>
-                <form action = "{% url 'login' %}" method = "POST">
+                <form action="{% url 'login' %}" method="POST">
                     {% csrf_token %}
                   <div class="form-floating mb-3">
                     <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
@@ -29,7 +29,7 @@
                   </div>
     
                   <div class="form-check mb-3">
-                    <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck" name="kleber">
+                    <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck" name="segredo">
                     <label class="form-check-label" for="rememberPasswordCheck">Esqueceu senho?</label>
                   </div>
 

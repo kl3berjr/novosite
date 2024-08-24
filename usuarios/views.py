@@ -6,7 +6,7 @@ from django.contrib.auth import login as login_django
 
 def login(request):
     if request.method == "GET":
-        return render(request, "usuarios/login.html")
+        return render(request, 'usuarios/login.html')
     else:
         username = request.POST.get('email')
         senha = request.POST.get('senha')
@@ -22,7 +22,7 @@ def login(request):
 
 def cadastro(request):
     if request.method == "GET":
-        return render(request, "usuarios/cadastro.html")
+        return render(request, 'usuarios/cadastro.html')
     else:
         username = request.POST.get('email')
         email = request.POST.get('email')
@@ -34,7 +34,7 @@ def cadastro(request):
         if user:
             return HttpResponse("Usuário já cadastrado")
         else:
-            user = User.objects.create(username=username, email=email, password=password, first_name=first_name)
+            user = User.objects.create_user(username=username, email=email, password=password, first_name=first_name)
             user.save()
 
             return HttpResponse("Usuário cadastrado com sucesso!")
