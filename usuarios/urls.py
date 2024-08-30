@@ -7,8 +7,7 @@ urlpatterns = [
     path('home/', views.home, name='home'),
     path('lancar/', views.lancar, name='lancar'),
     path('alterar/', views.alterar, name='alterar'),
-    path('visualizar/', views.visualizar, name='visualizar')
-
+    path('visualizar/', views.visualizar, name='visualizar'),
 ]
 
 # EU QUE FIZ ESSE ARQUIVO #
