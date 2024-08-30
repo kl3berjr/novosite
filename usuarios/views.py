@@ -15,7 +15,8 @@ def login(request):
 
         if user:
             login_django(request, user)
-            return HttpResponse('Acesso liberado!')
+            #return HttpResponse('Acesso liberado!')
+            return render(request, 'usuarios/home.html')
         else:
             return HttpResponse('Credenciais invalida!')
         
@@ -37,7 +38,8 @@ def cadastro(request):
             user = User.objects.create_user(username=username, email=email, password=password, first_name=first_name)
             user.save()
 
-            return HttpResponse("Usuário cadastrado com sucesso!")
+            #return HttpResponse("Usuário cadastrado com sucesso!")
+            return render(request, 'usuarios/login.html')
 
 
 def home(request):
