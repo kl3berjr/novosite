@@ -12,11 +12,11 @@
     <!-- Responsive navbar bg-dark-->
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #008000;">
         <div class="container px-5">
-            <a class="navbar-brand" href="#!">Diário de Nota</a>
+            <a class="navbar-brand" href="{% url 'home' %}">Diário de Nota</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Página Inical</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'home' %}">Página Inical</a></li>
                     <li class="nav-item"><a class="nav-link" href="#!">Sobre</a></li>
                     <li class="nav-item"><a class="nav-link" href="#!">Catato</a></li>
                     <li class="nav-item"><a class="nav-link" href="#!">Logout</a></li>
@@ -40,7 +40,7 @@
                         <h2 class="card-title">Lançar Nota</h2>
                         <p class="card-text">Nesta opção você podera lançar todas a notas.</p>
                     </div>
-                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Lançar</a></div>
+                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'lancar' %}" target=”_blank”>Lançar</a></div>
                 </div>
             </div>
             <div class="col-md-4 mb-5">
@@ -49,7 +49,7 @@
                         <h2 class="card-title">Editar Nota</h2>
                         <p class="card-text">Nesta opção você podera editar todas as notas.</p>
                     </div>
-                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Editar</a></div>
+                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'alterar' %}" target=”_blank”>Editar</a></div>
                 </div>
             </div>
             <div class="col-md-4 mb-5">
@@ -58,7 +58,7 @@
                         <h2 class="card-title">Visualizar Notas</h2>
                         <p class="card-text">Nesta opção você podera visualizar todas as notas cadastradas.</p>
                     </div>
-                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Visualizar</a></div>
+                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'visualizar' %}" target=”_blank”>Visualizar</a></div>
                 </div>
             </div>
             <div class="col-md-4 mb-5">

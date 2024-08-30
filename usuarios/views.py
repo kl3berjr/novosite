@@ -42,7 +42,7 @@ def cadastro(request):
 
 def home(request):
     ##if request.method == "GET":
-        return render(request, 'usuarios/h.html')
+        return render(request, 'usuarios/home.html')
 
 def lancar(request):
         return render(request, 'usuarios/lancar.html')
