@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http.response import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
-from django.contrib.auth import login as login_django
+from django.contrib.auth import login as login_django, logout as logout_django
 
 def login(request):
     if request.method == "GET":
@@ -41,6 +41,12 @@ def cadastro(request):
             #return HttpResponse("Usuário cadastrado com sucesso!")
             return render(request, 'usuarios/login.html')
 
+def logout(request):
+    if request.user.is_authenticated:
+        logout_django(request)
+        return render(request, 'usuarios/login.html')
+    else:
+        return HttpResponse("É preciso logar no sistema antes!")
 
 def home(request):
     if request.user.is_authenticated:
