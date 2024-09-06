@@ -12,7 +12,10 @@
     <div class="filter">
         <label for="disciplinaName">Filtrar por disciplina</label>
         <select name="disciplina">
-            <option></option>
+            <option>Todas as disciplinas</option>
+            {% for campo in lista_notas %}
+                <option>{{ campo.disciplina }}</option>
+            {% endfor %}
         </select>
     </div>
 </form>
