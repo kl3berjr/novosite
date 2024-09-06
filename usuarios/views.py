@@ -42,13 +42,6 @@ def cadastro(request):
             #return HttpResponse("Usuário cadastrado com sucesso!")
             return render(request, 'usuarios/login.html')
 
-def logout(request):
-    if request.user.is_authenticated:
-        logout_django(request)
-        return render(request, 'usuarios/login.html')
-    else:
-        return HttpResponse("É preciso logar no sistema antes!")
-
 def home(request):
     if request.user.is_authenticated:
         return render(request, 'usuarios/home.html')
@@ -63,14 +56,14 @@ def lancar(request):
             return HttpResponse("Erro!")
     else:
         nota=Nota()
-        nota.nome_aluno=request.user.first_name
-        nota.disciplina=request.POST.get('disciplina')
-        nota.nota_atividades=request.POST.get('nota_atividades')
-        nota.nota_trabalho=request.POST.get('nota_trabalho')
-        nota.nota_prova=request.POST.get('nota_prova')
-        nota.media=int(nota.nota_atividades + nota.nota_trabalho + nota.nota_prova)
+        nota.nome_aluno = request.user.first_name
+        nota.disciplina = request.POST.get('disciplina')
+        nota.nota_atividades = request.POST.get('nota_atividades')
+        nota.nota_trabalho = request.POST.get('nota_trabalho')
+        nota.nota_prova = request.POST.get('nota_prova')
+        nota.media = int(nota.nota_atividades) + int(nota.nota_trabalho) + int(nota.nota_prova)
 
-        nota_verificada=Nota.objects.filter(disciplina=nota.disciplina).first()
+        nota_verificada = Nota.objects.filter(disciplina=nota.disciplina).first()
 
         if nota_verificada:
             return HttpResponse("A disciplina já possui nota cadastrada!")
@@ -79,7 +72,6 @@ def lancar(request):
             return render(request, 'usuarios/home.html')
         
 
-
 def alterar(request):
     if request.user.is_authenticated:
         return render(request, 'usuarios/alterar.html')
@@ -87,7 +79,28 @@ def alterar(request):
          return HttpResponse("Erro!")
 
 def visualizar(request):
-    if request.user.is_authenticated:
-        return render(request, 'usuarios/visualizar.html')
-    else:
+    if request.user.is_authenticated == "GET":
+        if request.user.is_authenticated:
+            lista_notas = Nota.objects.all()
+            dicionario_notas={'lista_notas':lista_notas}
+            return render(request, 'usuarios/visualizar.html', dicionario_notas)
+        else:
          return HttpResponse("Erro!")
+    else:
+        disciplina = request.POST.get('disciplina')
+        if disciplina == "Todas as disciplinas":
+            lista_notas = Nota.objects.all()
+            dicionario_notas={'lista_notas':lista_notas}
+            return render(request, 'usuarios/visualizar.html', dicionario_notas)
+        else:
+            lista_notas = Nota.objects.filter(disciplina = disciplina)
+            dicionario_notas_filtradas = {"lista_notas":lista_notas}
+            return render(request, 'usuarios/visualizar.html', dicionario_notas_filtradas)
+
+
+def logout(request):
+    if request.user.is_authenticated:
+        logout_django(request)
+        return render(request, 'usuarios/login.html')
+    else:
+        return HttpResponse("É preciso logar no sistema antes!")
