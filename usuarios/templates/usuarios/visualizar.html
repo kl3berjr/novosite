@@ -20,4 +20,32 @@
         <button type="submit" class="btn btn-primary">Filtrar</button>
     </div>
 </form>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>Aluno</th>
+            <th>Disciplina</th>
+            <th>Nota das Atividade</th>
+            <th>Nota do Trabalho</th>
+            <th>Nota da Prova</th>
+            <th>Média</th>
+        </tr>
+        {% for campo in lista_notas %}
+        <tr>
+            <td>{{ user.firts_name }}</td>
+            <td>{{ campo.disciplina }}</td>
+            <td>{{ campo.nota_atividades }}</td>
+            <td>{{ campo.nota_trabalho }}</td>
+            <td>{{ campo.nota_prova }}</td>
+            <td>{{ campo.media }}</td>
+        </tr>
+        {% empty %}
+            <tr>
+                <td colspan="6">Nenhum resgistro encontrado! seu vcilão.</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+<hr>
 {% endblock %}
