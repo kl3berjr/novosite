@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as login_django, logout as logout_django
 from .models import Nota
+from django.urls import reverse
 
 def login(request):
     if request.method == "GET":
@@ -86,7 +87,7 @@ def excluir_verificacao(request, pk):
     if request.method=="GET":
         if request.user.is_authenticated:
             lista_notas = Nota.objects.get(pk=pk)
-            disciplina_selecionada;delete()
+            dicionario_notas={'lista_notas':lista_notas}
             return render(request, 'usuarios/excluir.html', dicionario_notas)
         else:
             return HttpResponse("Erro!")
@@ -95,7 +96,7 @@ def excluir(request, pk):
     if request.method=="GET":
         if request.user.is_authenticated:
             disciplina_selecionada = Nota.objects.get(pk=pk)
-            dicionario_notas={'lista_notas':lista_notas}
+            disciplina_selecionada;delete()
             return HttpResponseRedirect(reserve('alterar'))
         else:
             return HttpResponse("Erro!")
