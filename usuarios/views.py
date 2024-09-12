@@ -96,7 +96,7 @@ def excluir(request, pk):
     if request.method=="GET":
         if request.user.is_authenticated:
             disciplina_selecionada = Nota.objects.get(pk=pk)
-            disciplina_selecionada;delete()
+            disciplina_selecionada.delete()
             return HttpResponseRedirect(reserve('alterar'))
         else:
             return HttpResponse("Erro!")
